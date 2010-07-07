@@ -1,0 +1,4 @@
+clojure-dir: ../clojure
+android-sdk-dir: insert_sdklocation_here
+clj-android-dir: ../clj-android
+swank-clojure-android-dir: ../swank-clojure
