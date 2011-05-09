@@ -127,7 +127,7 @@
 
     <echo>Converting compiled files and external libraries into ${intermediate.dex.file}...</echo>
     <apply executable="${dx}" failonerror="true" parallel="true">
-      <arg value="-JXmx640M" />
+      <arg value="-JXmx700M" />
       <arg value="--dex" />
       <arg value="--no-locals" />
       <arg value="--output=${intermediate.dex.file}" />
