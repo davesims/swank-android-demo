@@ -8,6 +8,13 @@
   [context & body]
   `(.runOnUiThread ~context (fn [] (do ~@body))))
 
+(defn create-button
+  [context label handler]
+  (let [button (new android.widget.Button context)]
+    (.setText button label)
+    (on-click button (handler))
+    button))
+
 (defn add-log-msg
   [context parent-view text]
   (let [tv (new android.widget.TextView context)]
@@ -29,9 +36,3 @@
    (def de.exterm.android.swank/*context* context)
    (swank/start-repl 4005)))
 
-(defn create-button
-  [context label handler]
-  (let [button (new android.widget.Button context)]
-    (.setText button label)
-    (on-click button (handler))
-    button))
