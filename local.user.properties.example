@@ -1,3 +1,4 @@
 clojure-dir: ../clojure
 clj-android-dir: ../clj-android
 swank-clojure-android-dir: ../swank-clojure
+android-platform: insert_platformname_here
