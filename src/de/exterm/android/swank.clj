@@ -1,7 +1,10 @@
 (ns de.exterm.android.swank
   (:use clj-android
 	[swank.swank :as swank])
-  (:import [android.widget TextView]))
+  (:import [android.widget TextView]
+           [android.os Handler]
+           [de.exterm.android SpriteRenderer]
+           [de.exterm.android Sprite]))
 
 (defmacro with-ui-thread
   "Run the given body form in the UI thread."
@@ -33,6 +36,8 @@
 (defactivity Main
   (:create
    (create-main context)
-   (def de.exterm.android.swank/*context* context)
+   (def de.exterm.android.swank/context context)
+   (def de.exterm.android.swank/handler (new android.os.Handler))
+   (def de.exterm.android.swank/renderer (new SpriteRenderer context))
    (swank/start-repl 4005)))
 
