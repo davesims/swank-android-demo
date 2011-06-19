@@ -84,6 +84,10 @@ public class SpriteRenderer implements GLSurfaceView.Renderer {
 		void setAngle(float a);
 
 		void setScale(float s);
+		
+		void setRunnable(Runnable runnable);
+		
+		void run();
 	}
 
 	public SpriteRenderer(Context context) {
@@ -196,6 +200,7 @@ public class SpriteRenderer implements GLSurfaceView.Renderer {
 			for (Iterator<GLSprite> it = sprites.values().iterator(); it.hasNext(); ) {
 				glPushMatrix();
 				GLSprite sprite = it.next();
+				sprite.run();
 				float scale = sprite.getScale();
 				glScalef(scale, scale, scale);
 				glTranslatef(sprite.getX(), sprite.getY(), 0);

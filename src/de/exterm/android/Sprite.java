@@ -6,13 +6,23 @@ public class Sprite implements GLSprite {
 	private float x = 0;
 	private float y = 0;
 	private float a = 0;
-	private float s = 1;	
+	private float s = 1;
+	private Runnable runnable = null;
 	
 	public Sprite(float x, float y, float a, float s) {
+		this.init(x, y, a, s, null);
+	}
+	
+	// public Sprite(float x, float y, float a, float s, Runnable runnable) {
+	// this.init(x, y, a, s, runnable);
+	// }
+	
+	private void init(float x, float y, float a, float s, Runnable runnable) {
 		this.x = x;
 		this.y = y;
 		this.a = a;
 		this.s = s;
+		this.runnable = runnable;
 	}
 
 	@Override
@@ -54,5 +64,17 @@ public class Sprite implements GLSprite {
 	@Override
 	public void setScale(float s) {
 		this.s = s;		
+	}
+
+	@Override
+	public void setRunnable(Runnable runnable) {
+		this.runnable = runnable;
+	}
+
+	@Override
+	public void run() {
+		if (this.runnable != null) {
+			this.runnable.run();
+		}
 	}
 }
